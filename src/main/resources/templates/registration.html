@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+	
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	  font-family: 'Poppins', sans-serif;
+	}
+	
+	body {
+	  min-height: 100vh;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  background: linear-gradient(135deg, #4169E1, #00BFFF); /* Gradient background */
+	}
+	
+	.wrapper {
+	  position: relative;
+	  max-width: 430px;
+	  width: 100%;
+	  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+	  padding: 34px;
+	  border-radius: 20px; /* Increased border radius */
+	  backdrop-filter: blur(10px); /* Frosted glass effect */
+	  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Box shadow */
+	}
+	
+	.wrapper h2 {
+	  position: relative;
+	  font-size: 24px; /* Increased font size */
+	  text-align: center;
+	  font-weight: 600;
+	  color: #fff; /* White text color */
+	}
+	
+	.wrapper form {
+	  margin-top: 30px;
+	}
+	
+	.wrapper form .input-box {
+	  height: 40px; /* Increased input box height */
+	  margin: 30px 0;
+	}
+	
+	form .input-box input {
+	  height: 100%;
+	  width: 100%;
+	  outline: none;
+	  padding: 0 20px; /* Increased input padding */
+	  font-size: 16px; /* Increased font size */
+	  font-weight: 300; /* Increased font weight */
+	  color: #333;
+	  border: 2px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+	  border-radius: 30px; /* Increased border radius */
+	  transition: border-color 0.3s ease;
+	}
+	
+	.input-box input:focus,
+	.input-box input:valid {
+	  border-color: #fff; /* White border color on focus */
+	}
+	
+	.input-box.button input {
+	  color: #fff;
+	  background: #4169E1; /* Changed button background color */
+	  border: none;
+	  cursor: pointer;
+	}
+	
+	.input-box.button input:hover {
+	  background: #2ac5f9; /* Changed button hover background color */
+	  
+	}
+	
+	form .text h3 {
+	  color: #fff; /* White text color */
+	  width: 100%;
+	  text-align: center;
+	}
+	
+	form .text h3 a {
+	  color: #4169E1;
+	  text-decoration: none;
+	}
+	
+	form .text h3 a:hover {
+	  text-decoration: underline;
+	}
+
+
+
+</style>
+<body>
+    <div class="wrapper">
+    <h2>User Registration</h2>
+    <form action="/register" method="post" th:object="${user}">
+      <div class="input-box">
+        <input type="text" placeholder="Enter your name" th:field="*{name}" required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your age" th:field="*{age}" required>
+      </div>
+       <div class="input-box">
+        <input type="text" placeholder="Enter your salary" th:field="*{salary}"required>
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Enter your gmail" th:field="*{emailId}"required>
+      </div>
+      <div class="input-box button">
+        <input type="Submit" value="Register">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

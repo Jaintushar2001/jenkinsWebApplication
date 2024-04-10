@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Data</title>
+</head>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+	
+	* {
+	  margin: 0;
+	  padding: 0;
+	  box-sizing: border-box;
+	  font-family: 'Poppins', sans-serif;
+	}
+	
+	body {
+	  min-height: 100vh;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  background: linear-gradient(135deg, #4169E1, #00BFFF); /* Gradient background */
+	}
+	
+	.wrapper {
+	  position: relative;
+	  max-width: 800px;
+	  width: 100%;
+	  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+	  padding: 34px;
+	  border-radius: 20px; /* Increased border radius */
+	  backdrop-filter: blur(10px); /* Frosted glass effect */
+	  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Box shadow */
+	}
+	
+	.wrapper h2 {
+	  position: relative;
+	  font-size: 24px;
+	  text-align: center;
+	  font-weight: 600;
+	  color: #fff; 
+	}
+	
+	table {
+	  width: 100%;
+	  border-collapse: collapse;
+	  margin-top: 20px; /* Add margin to separate table from heading */
+	  border: 1.5px solid rgb(156, 156, 255);
+	}
+	
+	table th,
+	table td {
+	  padding: 12px;
+	  text-align: center;
+	  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent border */
+	}
+	
+	table th {
+	  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+	  color: #333; /* Dark text color */
+	  border: 1px solid rgb(156, 156, 255);
+	}
+	
+	table td {
+	  border: 1px solid rgb(156, 156, 255);
+	}
+	
+	table tbody tr:nth-child(even) {
+	  background-color: rgba(228, 239, 225, 0.1);
+	}
+	
+</style>
+<body>
+     <div class="wrapper">
+        <h2>Display User Data</h2>
+        <table class="table-container">
+            <thead>
+                <tr>
+                    <th>UserId</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Salary</th>
+                    <th>EmailId</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr th:each="user : ${users}">
+                <td th:text="${user.userId}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.age}"></td>
+                <td th:text="${user.salary}"></td>
+                <td th:text="${user.emailId}"></td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

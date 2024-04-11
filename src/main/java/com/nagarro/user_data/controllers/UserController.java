@@ -10,13 +10,18 @@ import com.nagarro.user_data.repo.UserRepo;
 @Controller
 public class UserController {
 	
-	@Autowired
+    @Autowired
     private UserRepo userRepo;
 
     @GetMapping("/")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new UserData());
         return "registration";
+    }
+
+    @GetMapping("/home")
+    public String home() {
+        return "This is the home page";
     }
 
     @PostMapping("/register")
@@ -30,7 +35,4 @@ public class UserController {
         model.addAttribute("users", userRepo.findAll());
         return "display";
     }
-	
-	
-
 }
